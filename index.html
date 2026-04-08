@@ -23,37 +23,30 @@
 
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto w-full animate__animated animate__fadeInDown">
         <h1 class="text-xl md:text-2xl font-black tracking-tight uppercase">Al Shahriar Soikat<span class="text-blue-500">.</span></h1>
-        <div class="flex items-center space-x-2 glass px-4 py-2 rounded-full text-sm">
-            <span>🧠 IQ চ্যালেঞ্জ ২০২৬</span>
-        </div>
+        <div class="glass px-4 py-2 rounded-full text-sm">🧠 IQ চ্যালেঞ্জ ২০২৬</div>
     </nav>
 
     <div id="main-container" class="max-w-4xl w-full glass rounded-[40px] p-8 md:p-16 shadow-2xl relative overflow-hidden animate__animated animate__zoomIn mx-auto my-10 flex-grow">
         
         <header id="header-section" class="text-center mb-12">
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
-                আপনার <span class="gradient-text">বুদ্ধিবৃত্তি</span> পরীক্ষা করুন
-            </h1>
-            <p class="text-gray-400 text-lg">আপনার বয়স অনুযায়ী প্রশ্ন সেট করা হয়েছে। শুরু করতে আপনার সঠিক বিভাগটি নির্বাচন করুন।</p>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">আপনার <span class="gradient-text">বুদ্ধিবৃত্তি</span> পরীক্ষা করুন</h1>
+            <p class="text-gray-400 text-lg">আপনার বয়স অনুযায়ী প্রশ্ন সেট করা হয়েছে। বিভাগ নির্বাচন করে শুরু করুন।</p>
         </header>
 
         <div id="age-screen" class="grid grid-cols-1 md:grid-cols-3 gap-6 animate__animated animate__fadeInUp">
             <button onclick="startTest('kids')" class="iq-card glass p-8 rounded-3xl text-center hover:bg-white/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🐣</div>
                 <h3 class="text-2xl font-bold mb-3">৫ - ১২ বছর</h3>
-                <p class="text-sm text-gray-500">সহজ ও মজার ধাঁধা</p>
                 <div class="mt-4 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">লেভেল ১</div>
             </button>
             <button onclick="startTest('teens')" class="iq-card glass p-8 rounded-3xl text-center border-blue-500/30 bg-blue-500/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🚀</div>
                 <h3 class="text-2xl font-bold mb-3">১৩ - ১৯ বছর</h3>
-                <p class="text-sm text-gray-500">যৌক্তিক বিশ্লেষণ</p>
                 <div class="mt-4 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs">লেভেল ২</div>
             </button>
             <button onclick="startTest('adults')" class="iq-card glass p-8 rounded-3xl text-center hover:bg-white/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🧠</div>
                 <h3 class="text-2xl font-bold mb-3">২০+ বছর</h3>
-                <p class="text-sm text-gray-500">জটিল গাণিতিক ও প্যাটার্ন</p>
                 <div class="mt-4 px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs">লেভেল ৩</div>
             </button>
         </div>
@@ -61,9 +54,7 @@
         <div id="quiz-screen" class="hidden animate__animated animate__fadeIn">
             <div class="flex justify-between items-center mb-10 pb-4 border-b border-white/5">
                 <span id="q-count" class="text-blue-400 font-bold text-lg">প্রশ্ন ১/১০</span>
-                <div class="w-40 h-3 bg-white/10 rounded-full">
-                    <div id="progress" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div>
-                </div>
+                <div class="w-40 h-3 bg-white/10 rounded-full"><div id="progress" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div></div>
             </div>
             <h2 id="question" class="text-2xl md:text-3xl font-bold mb-12 leading-relaxed text-center min-h-[100px]">...</h2>
             <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
@@ -77,47 +68,50 @@
         </div>
     </div>
 
-    <footer class="text-center py-10 mt-10 border-t border-gray-800 text-gray-500 animate__animated animate__fadeInUp">
+    <footer class="text-center py-10 mt-10 border-t border-gray-800 text-gray-500">
         <p>© ২০২৬ আল শাহরিয়ার সৈকত। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
     <script>
+        // Number Converter Function
+        const toBN = (n) => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+
         const questionsData = {
             kids: [
-                { q: "২, ৪, ৬, ৮, ... পরের সংখ্যাটি কত?", a: ["১০", "১২", "৯"], c: 0 },
-                { q: "একটি লাল বল এবং একটি নীল বলের মধ্যে লালটি বড় হলে, সাধারণত ভারী কোনটি?", a: ["লাল বল", "নীল বল", "বলা সম্ভব নয়"], c: 0 },
-                { q: "যদি ১=৩, ২=৬ হয়, তবে ৩= কত?", a: ["৯", "৭", "১২"], c: 0 },
-                { q: "কোনটি আলাদা? (কুকুর, বিড়াল, সিংহ, ঘোড়া)", a: ["বিড়াল", "সিংহ", "ঘোড়া"], c: 1 },
-                { q: "যদি তুমি একটি দৌড়ে দ্বিতীয় ব্যক্তিকে টপকে যাও, তবে তুমি এখন কততম?", a: ["প্রথম", "দ্বিতীয়", "তৃতীয়"], c: 1 },
-                { q: "সবচেয়ে বড় মহাসাগর কোনটি?", a: ["আটলান্টিক", "প্রশান্ত", "ভারত"], c: 1 },
-                { q: "১০-এর অর্ধেক কত?", a: ["২", "৫", "৮"], c: 1 },
-                { q: "১, ৩, ৫, ৭, ... পরের সংখ্যাটি কত?", a: ["৮", "৯", "১০"], c: 1 },
-                { q: "কোন প্রাণী উড্ডয়ন করতে পারে না?", a: ["পাখি", "কুকুর", "বাদুড়"], c: 1 },
-                { q: "যদি ১০ কেজি চালের দাম ১০০ টাকা হয়, তবে ১ কেজি চালের দাম কত?", a: ["১০ টাকা", "২০ টাকা", "৫ টাকা"], c: 0 }
+                { q: "২, ৪, ৬, ৮... পরের সংখ্যাটি কত?", a: ["১০", "১২", "৯"], c: 0 },
+                { q: "১টি আপেল আর ২টি আপেল মিলে কয়টি হয়?", a: ["২টি", "৩টি", "৪টি"], c: 1 },
+                { q: "১=৩, ২=৬ হলে, ৩= কত?", a: ["৯", "৭", "১২"], c: 0 },
+                { q: "সবচেয়ে বড় মহাসাগর কোনটি?", a: ["আটলান্টিক", "প্রশান্ত", "ভারত"], c: 1 },
+                { q: "একটি ত্রিভুজের কয়টি কোণ থাকে?", a: ["২টি", "৩টি", "৪টি"], c: 1 },
+                { q: "১০ এর অর্ধেক কত?", a: ["২", "৫", "৪"], c: 1 },
+                { q: "১, ৩, ৫, ৭... পরের সংখ্যাটি কত?", a: ["৮", "৯", "১০"], c: 1 },
+                { q: "কোনটি আলাদা? (আম, কলা, গোলাপ, লিচু)", a: ["আম", "কলা", "গোলাপ"], c: 2 },
+                { q: "ঘড়িতে ছোট কাঁটা কিসের নির্দেশ দেয়?", a: ["মিনিট", "সেকেন্ড", "ঘণ্টা"], c: 2 },
+                { q: "৫+৫ কত হয়?", a: ["১০", "২০", "১৫"], c: 0 }
             ],
             teens: [
-                { q: "একটি ব্যাটারি ও একটি বাল্বের দাম ১১০ টাকা। ব্যাটারির দাম বাল্বের চেয়ে ১০০ টাকা বেশি হলে, বাল্বের দাম কত?", a: ["১০ টাকা", "৫ টাকা", "১৫ টাকা"], c: 1 },
-                { q: "যদি ১=৫, ২=২৫, ৩=১২৫ হয়, তবে ৫= কত?", a: ["৬২৫", "৩১২৫", "১"], c: 2 },
-                { q: "কোনটি আলাদা? (তিমী, সিংহ, হাঙর, সাপ)", a: ["সিংহ", "তিমী", "সাপ"], c: 0 },
-                { q: "৩, ৭, ১৫, ৩১, ... পরের সংখ্যাটি কত?", a: ["৬৩", "৬২", "৬৪"], c: 0 },
-                { q: "যদি তুমি ১০০ জন মানুষের মধ্যে দৌড়ে দশম হও, তবে তুমি শেষ থেকে কততম?", a: ["৮১তম", "৯০তম", "৯১তম"], c: 2 },
-                { q: "৩ জন লোকের ৩টি ঘর বানাতে ৩ দিন লাগে। ৬ জন লোকের ৬টি ঘর বানাতে কয় দিন লাগবে?", a: ["৩ দিন", "৬ দিন", "৯ দিন"], c: 0 },
-                { q: "সবুজ এবং হলুদ মিশালে কোন রঙ তৈরি হয়?", a: ["নীল", "কমলা", "ফিকে সবুজ"], c: 2 },
-                { q: "একটি ক্রিকেট ম্যাচের ১টি বলের ওজন ১টি বলেরই ওজনের কত শতাংশ?", a: ["১০০%", "৫০%", "২০০%"], c: 0 },
-                { q: "যদি আমি তোমার বাবার ছেলের একমাত্র বড় ভাই হই, তবে আমি তোমার কে?", a: ["কাকা", "বাবা", "ভাই"], c: 2 },
-                { q: "১০ জনের একটি গ্রুপে সবাই সবার সাথে একবার করে হাত মেলালে মোট কতবার হাত মেলানো হবে?", a: ["৪৫ বার", "৫০ বার", "১০০ বার"], c: 0 }
+                { q: "ব্যাটারি ও বাল্বের দাম ১১০ টাকা। ব্যাটারি বাল্বের চেয়ে ১০০ টাকা দামি হলে বাল্বের দাম কত?", a: ["১০ টাকা", "৫ টাকা", "১৫ টাকা"], c: 1 },
+                { q: "১=৫, ২=২৫, ৩=১২৫ হলে ৫= কত?", a: ["৬২৫", "৩১২৫", "১"], c: 2 },
+                { q: "৩ জন লোক ৩ দিনে ৩টি ঘর বানালে, ৬ জন লোক ৬ দিনে কয়টি ঘর বানাবে?", a: ["৬টি", "১২টি", "১৮টি"], c: 1 },
+                { q: "৩, ৭, ১৫, ৩১... পরের সংখ্যাটি কত?", a: ["৬৩", "৬২", "৬৪"], c: 0 },
+                { q: "১০০ জন মানুষের দৌড়ে তুমি দশম হলে, শেষ থেকে তুমি কততম?", a: ["৮১তম", "৯০তম", "৯১তম"], c: 2 },
+                { q: "যদি আজ সোমবার হয়, তবে ৬১ দিন পর কী বার হবে?", a: ["শনিবার", "রবিবার", "শুক্রবার"], c: 0 },
+                { q: "কোনটি আলাদা? (তিমী, সিংহ, হাঙর, ডলফিন)", a: ["সিংহ", "তিমী", "হাঙর"], c: 0 },
+                { q: "একটি ড্রামে ৫টি ছিদ্র আছে। ড্রামটি ভর্তি হতে কত সময় লাগবে?", a: ["দ্রুত", "দেরিতে", "কখনো হবে না"], c: 2 },
+                { q: "ইংরেজি বর্ণমালার ১০ম বর্ণ কোনটি?", a: ["H", "I", "J"], c: 2 },
+                { q: "১০ জনের গ্রুপে সবাই সবার সাথে হাত মেলালে মোট কতবার মেলানো হবে?", a: ["৪৫", "৫০", "১০০"], c: 0 }
             ],
             adults: [
-                { q: "কোনটি আলাদা? (তিমী, হাঙর, ডলফিন, অক্টোপাস)", a: ["হাঙর", "তিমী", "অক্টোপাস"], c: 2 },
-                { q: "২, ৬, ১২, ২০, ৩০, ... পরের সংখ্যাটি কত?", a: ["৪২", "৪০", "৫০"], c: 0 },
-                { q: "যদি ১+১+১+১=৪৪, ১+১+১+১+১=১১ হয়, তবে ১+১+১+১+১+১= কত?", a: ["১৪", "২৫", "১৬"], c: 1 },
-                { q: "কোন সালে বাংলাদেশের মহান মুক্তিযুদ্ধ হয়?", a: ["১৯৫২", "১৯৭১", "১৯৯০"], c: 1 },
-                { q: "যদি তুমি একটি বৃত্তাকার ট্র্যাকে দৌড়াও এবং তুমি সবাইকে ১০ বার ওভারটেক করো, তবে তুমি কয়বার প্রথম হবে?", a: ["১০ বার", "১ বার", "বলা সম্ভব নয়"], c: 1 },
-                { q: "একটি গ্লাসে অর্ধেক জল আছে। এটি পূর্ণ করার জন্য আরও ২ লিটার জল লাগে। গ্লাসের ক্ষমতা কত?", a: ["৪ লিটার", "২ লিটার", "৮ লিটার"], c: 0 },
-                { q: "যদি তোমার বাবার একমাত্র মেয়ের ছেলে তোমার কাকা হয়, তবে তোমার বাবা তোমার কে?", a: ["দাদু", "বাবা", "কাকা"], c: 0 },
-                { q: "১ থেকে ১০০ পর্যন্ত সংখ্যার মধ্যে কয়টি '৯' আছে?", a: ["১০টি", "১৯টি", "২০টি"], c: 2 },
-                { q: "একটি সংখ্যাকে ২ দিয়ে গুণ করে ১০ বিয়োগ করলে ফল ২০ হয়। সংখ্যাটি কত?", a: ["১৫", "১০", "২৫"], c: 0 },
-                { q: "যদি ১০ জন লোকের একটি কাজ করতে ৫ দিন লাগে, তবে ২০ জন লোকের সেই একই কাজ করতে কত দিন লাগবে?", a: ["১০ দিন", "২.৫ দিন", "৫ দিন"], c: 1 }
+                { q: "২, ৬, ১২, ২০, ৩০... পরের সংখ্যাটি কত?", a: ["৪২", "৪০", "৫০"], c: 0 },
+                { q: "১+১+১+১=৪৪, ১+১+১+১+১=৫৫ হলে ১+১+১+১+১+১= কত?", a: ["৬৬", "১১", "১৬"], c: 0 },
+                { q: "১ থেকে ১০০ এর মধ্যে কয়টি '৯' আছে?", a: ["১০", "১৯", "২০"], c: 2 },
+                { q: "কোনটি আলাদা? (অক্টোপাস, তিমী, হাঙর, ডলফিন)", a: ["অক্টোপাস", "তিমী", "হাঙর"], c: 0 },
+                { q: "বৃত্তাকার ট্র্যাকে সবাইকে ১০ বার ওভারটেক করলে তুমি কয়বার প্রথম হবে?", a: ["১০ বার", "১ বার", "০ বার"], c: 1 },
+                { q: "একটি সংখ্যাকে ২ দিয়ে গুণ করে ১০ বিয়োগ করলে ২০ হয়। সংখ্যাটি কত?", a: ["১৫", "২৫", "১০"], c: 0 },
+                { q: "বাবা, মা এবং ছেলের গড় বয়স ২৫। বাবা ও মায়ের গড় বয়স ৩০ হলে ছেলের বয়স কত?", a: ["১৫", "১০", "২০"], c: 1 },
+                { q: "যদি উত্তর-পূর্ব দিক দক্ষিণ হয়, তবে পূর্ব দিক কী হবে?", a: ["উত্তর-পশ্চিম", "দক্ষিণ-পশ্চিম", "দক্ষিণ-পূর্ব"], c: 1 },
+                { q: "৫ জন লোক ৫ মিনিটে ৫টি মেশিন চালাতে পারলে ১০০ জন লোক ১০০ মিনিটে কয়টি চালাবে?", a: ["১০০", "২০০০", "৫০০"], c: 1 },
+                { q: "৭, ১০, ৮, ১১, ৯, ১২... পরের সংখ্যাটি কত?", a: ["৭", "১০", "১৩"], c: 1 }
             ]
         };
 
@@ -138,7 +132,7 @@
             if (qIndex < currentCategory.length) {
                 const q = currentCategory[qIndex];
                 document.getElementById('question').innerText = q.q;
-                document.getElementById('q-count').innerText = `প্রশ্ন ${qIndex + 1}/${currentCategory.length}`;
+                document.getElementById('q-count').innerText = `প্রশ্ন ${toBN(qIndex + 1)}/${toBN(currentCategory.length)}`;
                 document.getElementById('progress').style.width = ((qIndex + 1) / currentCategory.length * 100) + '%';
                 
                 const optionsDiv = document.getElementById('options');
@@ -146,7 +140,6 @@
                 q.a.forEach((opt, i) => {
                     const btn = document.createElement('button');
                     btn.className = "glass p-6 rounded-2xl text-left hover:bg-blue-500/20 transition-all border border-white/5 hover:border-blue-400/50 iq-card animate__animated animate__fadeInRight";
-                    btn.style.animationDelay = `${i * 0.1}s`;
                     btn.innerText = opt;
                     btn.onclick = () => checkAnswer(i);
                     optionsDiv.appendChild(btn);
@@ -166,7 +159,7 @@
             document.getElementById('quiz-screen').classList.add('hidden');
             document.getElementById('result-screen').classList.remove('hidden');
             const finalScore = Math.round((score / currentCategory.length) * 100);
-            document.getElementById('score-val').innerText = finalScore + '%';
+            document.getElementById('score-val').innerText = toBN(finalScore) + '%';
             
             if (finalScore > 80) document.getElementById('iq-msg').innerText = "অবিশ্বাস্য! আপনি একজন জিনিয়াস!";
             else if (finalScore > 50) document.getElementById('iq-msg').innerText = "চমৎকার বুদ্ধিমত্তা!";
