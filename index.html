@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল শাহরিয়ার সৈকত | IQ চ্যালেঞ্জ</title>
+    <title>Al Shahriar Soikat | IQ Challenge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
@@ -23,7 +23,7 @@
 
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto w-full animate__animated animate__fadeInDown">
         <h1 class="text-xl md:text-2xl font-black tracking-tight uppercase">Al Shahriar Soikat<span class="text-blue-500">.</span></h1>
-        <div class="glass px-4 py-2 rounded-full text-sm">🧠 IQ চ্যালেঞ্জ ২০২৬</div>
+        <div class="glass px-4 py-2 rounded-full text-sm">🧠 IQ Challenge 2026</div>
     </nav>
 
     <div id="main-container" class="max-w-4xl w-full glass rounded-[40px] p-8 md:p-16 shadow-2xl relative overflow-hidden animate__animated animate__zoomIn mx-auto my-10 flex-grow">
@@ -36,25 +36,27 @@
         <div id="age-screen" class="grid grid-cols-1 md:grid-cols-3 gap-6 animate__animated animate__fadeInUp">
             <button onclick="startTest('kids')" class="iq-card glass p-8 rounded-3xl text-center hover:bg-white/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🐣</div>
-                <h3 class="text-2xl font-bold mb-3">৫ - ১২ বছর</h3>
-                <div class="mt-4 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">লেভেল ১</div>
+                <h3 class="text-2xl font-bold mb-3">5 - 12 Years</h3>
+                <div class="mt-4 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">Level 1</div>
             </button>
             <button onclick="startTest('teens')" class="iq-card glass p-8 rounded-3xl text-center border-blue-500/30 bg-blue-500/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🚀</div>
-                <h3 class="text-2xl font-bold mb-3">১৩ - ১৯ বছর</h3>
-                <div class="mt-4 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs">লেভেল ২</div>
+                <h3 class="text-2xl font-bold mb-3">13 - 19 Years</h3>
+                <div class="mt-4 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs">Level 2</div>
             </button>
             <button onclick="startTest('adults')" class="iq-card glass p-8 rounded-3xl text-center hover:bg-white/5 flex flex-col items-center">
                 <div class="text-6xl mb-6">🧠</div>
-                <h3 class="text-2xl font-bold mb-3">২০+ বছর</h3>
-                <div class="mt-4 px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs">লেভেল ৩</div>
+                <h3 class="text-2xl font-bold mb-3">20+ Years</h3>
+                <div class="mt-4 px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs">Level 3</div>
             </button>
         </div>
 
         <div id="quiz-screen" class="hidden animate__animated animate__fadeIn">
             <div class="flex justify-between items-center mb-10 pb-4 border-b border-white/5">
-                <span id="q-count" class="text-blue-400 font-bold text-lg">প্রশ্ন ১/১০</span>
-                <div class="w-40 h-3 bg-white/10 rounded-full"><div id="progress" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div></div>
+                <span id="q-count" class="text-blue-400 font-bold text-lg">Question 1/10</span>
+                <div class="w-40 h-3 bg-white/10 rounded-full">
+                    <div id="progress" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div>
+                </div>
             </div>
             <h2 id="question" class="text-2xl md:text-3xl font-bold mb-12 leading-relaxed text-center min-h-[100px]">...</h2>
             <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
@@ -62,56 +64,53 @@
 
         <div id="result-screen" class="hidden text-center animate__animated animate__bounceIn">
             <div class="text-8xl mb-10">🏆</div>
-            <h2 class="text-5xl font-black mb-6">আপনার স্কোর: <span id="score-val" class="gradient-text">০</span></h2>
-            <p id="iq-msg" class="text-gray-400 mb-12 text-2xl italic leading-snug">চমৎকার বুদ্ধিমত্তা!</p>
+            <h2 class="text-5xl font-black mb-6">আপনার স্কোর: <span id="score-val" class="gradient-text">0%</span></h2>
+            <p id="iq-msg" class="text-gray-400 mb-12 text-2xl italic leading-snug">Excellent Intelligence!</p>
             <button onclick="location.reload()" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-full font-bold text-lg transition-all shadow-lg shadow-blue-500/20 iq-card">আবার চেষ্টা করুন</button>
         </div>
     </div>
 
     <footer class="text-center py-10 mt-10 border-t border-gray-800 text-gray-500">
-        <p>© ২০২৬ আল শাহরিয়ার সৈকত। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>© 2026 আল শাহরিয়ার সৈকত। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
     <script>
-        // Number Converter Function
-        const toBN = (n) => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
-
         const questionsData = {
             kids: [
-                { q: "২, ৪, ৬, ৮... পরের সংখ্যাটি কত?", a: ["১০", "১২", "৯"], c: 0 },
-                { q: "১টি আপেল আর ২টি আপেল মিলে কয়টি হয়?", a: ["২টি", "৩টি", "৪টি"], c: 1 },
-                { q: "১=৩, ২=৬ হলে, ৩= কত?", a: ["৯", "৭", "১২"], c: 0 },
-                { q: "সবচেয়ে বড় মহাসাগর কোনটি?", a: ["আটলান্টিক", "প্রশান্ত", "ভারত"], c: 1 },
-                { q: "একটি ত্রিভুজের কয়টি কোণ থাকে?", a: ["২টি", "৩টি", "৪টি"], c: 1 },
-                { q: "১০ এর অর্ধেক কত?", a: ["২", "৫", "৪"], c: 1 },
-                { q: "১, ৩, ৫, ৭... পরের সংখ্যাটি কত?", a: ["৮", "৯", "১০"], c: 1 },
+                { q: "2, 4, 6, 8... পরের সংখ্যাটি কত?", a: ["10", "12", "9"], c: 0 },
+                { q: "1টি আপেল আর 2টি আপেল মিলে মোট কয়টি হয়?", a: ["2টি", "3টি", "4টি"], c: 1 },
+                { q: "যদি 1=3, 2=6 হয়, তবে 3= কত?", a: ["9", "7", "12"], c: 0 },
+                { q: "সবচেয়ে বড় মহাসাগর কোনটি?", a: ["Atlantic", "Pacific", "Indian"], c: 1 },
+                { q: "একটি ত্রিভুজের কয়টি কোণ থাকে?", a: ["2টি", "3টি", "4টি"], c: 1 },
+                { q: "10 এর অর্ধেক কত?", a: ["2", "5", "4"], c: 1 },
+                { q: "1, 3, 5, 7... পরের সংখ্যাটি কত?", a: ["8", "9", "10"], c: 1 },
                 { q: "কোনটি আলাদা? (আম, কলা, গোলাপ, লিচু)", a: ["আম", "কলা", "গোলাপ"], c: 2 },
-                { q: "ঘড়িতে ছোট কাঁটা কিসের নির্দেশ দেয়?", a: ["মিনিট", "সেকেন্ড", "ঘণ্টা"], c: 2 },
-                { q: "৫+৫ কত হয়?", a: ["১০", "২০", "১৫"], c: 0 }
+                { q: "ঘড়িতে ছোট কাঁটা কিসের নির্দেশ দেয়?", a: ["Minute", "Second", "Hour"], c: 2 },
+                { q: "5 + 5 কত হয়?", a: ["10", "20", "15"], c: 0 }
             ],
             teens: [
-                { q: "ব্যাটারি ও বাল্বের দাম ১১০ টাকা। ব্যাটারি বাল্বের চেয়ে ১০০ টাকা দামি হলে বাল্বের দাম কত?", a: ["১০ টাকা", "৫ টাকা", "১৫ টাকা"], c: 1 },
-                { q: "১=৫, ২=২৫, ৩=১২৫ হলে ৫= কত?", a: ["৬২৫", "৩১২৫", "১"], c: 2 },
-                { q: "৩ জন লোক ৩ দিনে ৩টি ঘর বানালে, ৬ জন লোক ৬ দিনে কয়টি ঘর বানাবে?", a: ["৬টি", "১২টি", "১৮টি"], c: 1 },
-                { q: "৩, ৭, ১৫, ৩১... পরের সংখ্যাটি কত?", a: ["৬৩", "৬২", "৬৪"], c: 0 },
-                { q: "১০০ জন মানুষের দৌড়ে তুমি দশম হলে, শেষ থেকে তুমি কততম?", a: ["৮১তম", "৯০তম", "৯১তম"], c: 2 },
-                { q: "যদি আজ সোমবার হয়, তবে ৬১ দিন পর কী বার হবে?", a: ["শনিবার", "রবিবার", "শুক্রবার"], c: 0 },
-                { q: "কোনটি আলাদা? (তিমী, সিংহ, হাঙর, ডলফিন)", a: ["সিংহ", "তিমী", "হাঙর"], c: 0 },
-                { q: "একটি ড্রামে ৫টি ছিদ্র আছে। ড্রামটি ভর্তি হতে কত সময় লাগবে?", a: ["দ্রুত", "দেরিতে", "কখনো হবে না"], c: 2 },
-                { q: "ইংরেজি বর্ণমালার ১০ম বর্ণ কোনটি?", a: ["H", "I", "J"], c: 2 },
-                { q: "১০ জনের গ্রুপে সবাই সবার সাথে হাত মেলালে মোট কতবার মেলানো হবে?", a: ["৪৫", "৫০", "১০০"], c: 0 }
+                { q: "ব্যাটারি ও বাল্বের দাম 110 টাকা। ব্যাটারি বাল্বের চেয়ে 100 টাকা বেশি দামি হলে বাল্বের দাম কত?", a: ["10 টাকা", "5 টাকা", "15 টাকা"], c: 1 },
+                { q: "1=5, 2=25, 3=125 হলে 5= কত?", a: ["625", "3125", "1"], c: 2 },
+                { q: "3 জন লোক 3 দিনে 3টি ঘর বানালে, 6 জন লোক 6 দিনে কয়টি ঘর বানাবে?", a: ["6টি", "12টি", "18টি"], c: 1 },
+                { q: "3, 7, 15, 31... পরের সংখ্যাটি কত?", a: ["63", "62", "64"], c: 0 },
+                { q: "100 জন মানুষের দৌড়ে তুমি দশম হলে, শেষ থেকে তুমি কততম?", a: ["81st", "90th", "91st"], c: 2 },
+                { q: "যদি আজ সোমবার হয়, তবে 61 দিন পর কী বার হবে?", a: ["Saturday", "Sunday", "Friday"], c: 0 },
+                { q: "কোনটি আলাদা? (Whale, Lion, Shark, Dolphin)", a: ["Lion", "Whale", "Shark"], c: 0 },
+                { q: "একটি ড্রামে 5টি ছিদ্র আছে। ড্রামটি ভর্তি হতে কত সময় লাগবে?", a: ["Fast", "Slow", "Never"], c: 2 },
+                { q: "ইংরেজি বর্ণমালার 10th বর্ণ কোনটি?", a: ["H", "I", "J"], c: 2 },
+                { q: "10 জনের গ্রুপে সবাই সবার সাথে একবার করে হাত মেলালে মোট কতবার হবে?", a: ["45", "50", "100"], c: 0 }
             ],
             adults: [
-                { q: "২, ৬, ১২, ২০, ৩০... পরের সংখ্যাটি কত?", a: ["৪২", "৪০", "৫০"], c: 0 },
-                { q: "১+১+১+১=৪৪, ১+১+১+১+১=৫৫ হলে ১+১+১+১+১+১= কত?", a: ["৬৬", "১১", "১৬"], c: 0 },
-                { q: "১ থেকে ১০০ এর মধ্যে কয়টি '৯' আছে?", a: ["১০", "১৯", "২০"], c: 2 },
-                { q: "কোনটি আলাদা? (অক্টোপাস, তিমী, হাঙর, ডলফিন)", a: ["অক্টোপাস", "তিমী", "হাঙর"], c: 0 },
-                { q: "বৃত্তাকার ট্র্যাকে সবাইকে ১০ বার ওভারটেক করলে তুমি কয়বার প্রথম হবে?", a: ["১০ বার", "১ বার", "০ বার"], c: 1 },
-                { q: "একটি সংখ্যাকে ২ দিয়ে গুণ করে ১০ বিয়োগ করলে ২০ হয়। সংখ্যাটি কত?", a: ["১৫", "২৫", "১০"], c: 0 },
-                { q: "বাবা, মা এবং ছেলের গড় বয়স ২৫। বাবা ও মায়ের গড় বয়স ৩০ হলে ছেলের বয়স কত?", a: ["১৫", "১০", "২০"], c: 1 },
-                { q: "যদি উত্তর-পূর্ব দিক দক্ষিণ হয়, তবে পূর্ব দিক কী হবে?", a: ["উত্তর-পশ্চিম", "দক্ষিণ-পশ্চিম", "দক্ষিণ-পূর্ব"], c: 1 },
-                { q: "৫ জন লোক ৫ মিনিটে ৫টি মেশিন চালাতে পারলে ১০০ জন লোক ১০০ মিনিটে কয়টি চালাবে?", a: ["১০০", "২০০০", "৫০০"], c: 1 },
-                { q: "৭, ১০, ৮, ১১, ৯, ১২... পরের সংখ্যাটি কত?", a: ["৭", "১০", "১৩"], c: 1 }
+                { q: "2, 6, 12, 20, 30... পরের সংখ্যাটি কত?", a: ["42", "40", "50"], c: 0 },
+                { q: "1+1+1+1=44, 1+1+1+1+1=55 হলে 1+1+1+1+1+1= কত?", a: ["66", "11", "16"], c: 0 },
+                { q: "1 থেকে 100 এর মধ্যে কয়টি '9' আছে?", a: ["10", "19", "20"], c: 2 },
+                { q: "কোনটি আলাদা? (Octopus, Whale, Shark, Dolphin)", a: ["Octopus", "Whale", "Shark"], c: 0 },
+                { q: "বৃত্তাকার ট্র্যাকে সবাইকে 10 বার ওভারটেক করলে তুমি কয়বার প্রথম হবে?", a: ["10 Times", "1 Time", "0 Time"], c: 1 },
+                { q: "একটি সংখ্যাকে 2 দিয়ে গুণ করে 10 বিয়োগ করলে 20 হয়। সংখ্যাটি কত?", a: ["15", "25", "10"], c: 0 },
+                { q: "বাবা, মা এবং ছেলের গড় বয়স 25। বাবা ও মায়ের গড় বয়স 30 হলে ছেলের বয়স কত?", a: ["15", "10", "20"], c: 1 },
+                { q: "যদি উত্তর-পূর্ব দিক দক্ষিণ হয়, তবে পূর্ব দিক কী হবে?", a: ["North-West", "South-West", "South-East"], c: 1 },
+                { q: "5 জন লোক 5 মিনিটে 5টি মেশিন চালায়। 100 জন লোক 100 মিনিটে কয়টি চালাবে?", a: ["100", "2000", "500"], c: 1 },
+                { q: "7, 10, 8, 11, 9, 12... পরের সংখ্যাটি কত?", a: ["7", "10", "13"], c: 1 }
             ]
         };
 
@@ -132,7 +131,7 @@
             if (qIndex < currentCategory.length) {
                 const q = currentCategory[qIndex];
                 document.getElementById('question').innerText = q.q;
-                document.getElementById('q-count').innerText = `প্রশ্ন ${toBN(qIndex + 1)}/${toBN(currentCategory.length)}`;
+                document.getElementById('q-count').innerText = `Question ${qIndex + 1}/${currentCategory.length}`;
                 document.getElementById('progress').style.width = ((qIndex + 1) / currentCategory.length * 100) + '%';
                 
                 const optionsDiv = document.getElementById('options');
@@ -159,11 +158,11 @@
             document.getElementById('quiz-screen').classList.add('hidden');
             document.getElementById('result-screen').classList.remove('hidden');
             const finalScore = Math.round((score / currentCategory.length) * 100);
-            document.getElementById('score-val').innerText = toBN(finalScore) + '%';
+            document.getElementById('score-val').innerText = finalScore + '%';
             
-            if (finalScore > 80) document.getElementById('iq-msg').innerText = "অবিশ্বাস্য! আপনি একজন জিনিয়াস!";
-            else if (finalScore > 50) document.getElementById('iq-msg').innerText = "চমৎকার বুদ্ধিমত্তা!";
-            else document.getElementById('iq-msg').innerText = "ভালো চেষ্টা, আরও অনুশীলনের প্রয়োজন।";
+            if (finalScore > 80) document.getElementById('iq-msg').innerText = "Unbelievable! You are a Genius!";
+            else if (finalScore > 50) document.getElementById('iq-msg').innerText = "Excellent Intelligence!";
+            else document.getElementById('iq-msg').innerText = "Good try, needs more practice.";
         }
     </script>
 </body>
