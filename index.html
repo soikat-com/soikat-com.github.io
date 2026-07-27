@@ -1,286 +1,184 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Shahriar Soikat | IQ Challenge</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <title>My Gaming Hub</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap');
-        body { font-family: 'Hind Siliguri', sans-serif; background: #050505; color: white; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .iq-card { transition: all 0.3s ease; cursor: pointer; }
-        .iq-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.08); }
-        .star-rating { direction: rtl; display: inline-flex; }
-        .star-rating input { display: none; }
-        .star-rating label { font-size: 2.5rem; color: #444; cursor: pointer; transition: color 0.2s; padding: 0 5px; }
-        .star-rating input:checked ~ label { color: #fbbf24; }
-        .star-rating label:hover, .star-rating label:hover ~ label { color: #fcd34d; }
+        /* Base Styling & Dark Theme */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff4655; /* A bright gaming accent color */
+        }
+        h1 {
+            margin: 0;
+            color: #ff4655;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff4655;
+        }
+
+        /* Main Content & Grid Layout */
+        .container {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        /* Individual Game Cards */
+        .game-card {
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 70, 85, 0.2);
+            border-color: #ff4655;
+        }
+        .game-img {
+            width: 100%;
+            height: 150px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .game-info {
+            padding: 20px;
+        }
+        .game-title {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+        .game-desc {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .play-btn {
+            display: inline-block;
+            background-color: #ff4655;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .play-btn:hover {
+            background-color: #ff2a3f;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #777;
+            border-top: 1px solid #333;
+        }
     </style>
 </head>
-<body class="min-h-screen p-4 flex flex-col justify-between">
+<body>
 
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto w-full animate__animated animate__fadeInDown">
-        <h1 class="text-xl md:text-2xl font-black tracking-tight uppercase">Al Shahriar Soikat<span class="text-blue-500">.</span></h1>
-        <div class="glass px-4 py-2 rounded-full text-2xl">🧠</div>
-    </nav>
+    <header>
+        <h1>Player One Hub</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Arcade</a>
+            <a href="#">Logic & Puzzles</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
 
-    <div id="main-container" class="max-w-4xl w-full glass rounded-[30px] p-8 md:p-12 shadow-2xl relative animate__animated animate__zoomIn mx-auto my-6 flex-grow text-center border border-white/10">
+    <div class="container">
+        <h2>Featured Games</h2>
         
-        <div id="home-screen">
-            <header class="mb-10">
-                <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">আপনার <span class="gradient-text">IQ</span> লেভেল কত?</h1>
-                <p class="text-gray-400 text-lg">সঠিক লজিকের মাধ্যমে আপনার বুদ্ধিমত্তা যাচাই করুন।</p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div onclick="initTest('kids')" class="iq-card glass p-8 rounded-3xl flex flex-col items-center border border-green-500/20">
-                    <div class="text-5xl mb-4">🐣</div>
-                    <h3 class="text-xl font-bold mb-2">5 - 12 Years</h3>
-                    <span class="text-xs text-green-400 bg-green-500/10 px-3 py-1 rounded-full">Level 1</span>
-                </div>
-                <div onclick="initTest('teens')" class="iq-card glass p-8 rounded-3xl border border-blue-500/30 flex flex-col items-center">
-                    <div class="text-5xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold mb-2">13 - 19 Years</h3>
-                    <span class="text-xs text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full">Level 2</span>
-                </div>
-                <div onclick="initTest('adults')" class="iq-card glass p-8 rounded-3xl flex flex-col items-center border border-red-500/20">
-                    <div class="text-5xl mb-4">🧠</div>
-                    <h3 class="text-xl font-bold mb-2">20+ Years</h3>
-                    <span class="text-xs text-red-400 bg-red-500/10 px-3 py-1 rounded-full">Level 3</span>
-                </div>
-            </div>
-
-            <div class="glass p-6 rounded-2xl max-w-sm mx-auto border-t border-white/5">
-                <h4 class="text-gray-300 font-bold mb-2">ইউজার রেটিং</h4>
-                <div class="text-3xl text-yellow-400 mb-1">★★★★★</div>
-                <p class="text-sm text-gray-500">Average: <span class="text-white font-bold">4.8</span>/5</p>
-            </div>
-        </div>
-
-        <div id="quiz-screen" class="hidden animate__animated animate__fadeIn">
-            <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/10 text-left">
-                <span id="q-count" class="text-blue-400 font-bold text-lg">Question 1/10</span>
-                <div class="w-1/2 h-2 bg-gray-800 rounded-full"><div id="progress" class="h-full bg-blue-500 rounded-full transition-all duration-300" style="width: 10%"></div></div>
-            </div>
-            <h2 id="question" class="text-2xl md:text-3xl font-bold mb-10 leading-relaxed min-h-[80px]">...</h2>
-            <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-        </div>
-
-        <div id="result-screen" class="hidden animate__animated animate__zoomIn">
-            <h2 class="text-2xl font-bold text-gray-400 mb-4">আপনার আনুমানিক IQ স্কোর:</h2>
-            <h1 class="text-8xl font-black mb-4 gradient-text" id="iq-val">0</h1>
-            <div id="iq-category" class="inline-block rounded-full px-6 py-2 mb-6 text-lg font-bold">...</div>
-            <p id="iq-msg" class="text-gray-400 mb-10 italic max-w-lg mx-auto">...</p>
+        <div class="game-grid">
             
-            <button onclick="retryTest()" class="bg-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all iq-card shadow-[0_0_20px_rgba(37,99,235,0.4)] mb-10">
-                আবার চেষ্টা করুন
-            </button>
-
-            <div id="rate-us-box" class="glass p-6 rounded-3xl border border-white/5 max-w-md mx-auto">
-                <h3 class="text-lg font-bold mb-2">রেটিং দিন</h3>
-                <div class="star-rating mb-2">
-                    <input type="radio" id="star5" name="rating" value="5" onclick="submitRating(5)"><label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" onclick="submitRating(4)"><label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" onclick="submitRating(3)"><label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" onclick="submitRating(2)"><label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1" onclick="submitRating(1)"><label for="star1">★</label>
+            <!-- Game Card 1 -->
+            <div class="game-card">
+                <div class="game-img">🧠</div>
+                <div class="game-info">
+                    <h3 class="game-title">Logic IQ Master</h3>
+                    <p class="game-desc">Test your brain with challenging logic puzzles and quizzes.</p>
+                    <button class="play-btn" onclick="playGame('Logic IQ Master')">Play Now</button>
                 </div>
-                <p id="rating-thanks" class="text-sm text-green-400 hidden">ধন্যবাদ!</p>
             </div>
+
+            <!-- Game Card 2 -->
+            <div class="game-card">
+                <div class="game-img">👾</div>
+                <div class="game-info">
+                    <h3 class="game-title">Pixel Defender</h3>
+                    <p class="game-desc">Protect your base from incoming waves in this retro shooter.</p>
+                    <button class="play-btn" onclick="playGame('Pixel Defender')">Play Now</button>
+                </div>
+            </div>
+
+            <!-- Game Card 3 -->
+            <div class="game-card">
+                <div class="game-img">🏁</div>
+                <div class="game-info">
+                    <h3 class="game-title">Speed Run</h3>
+                    <p class="game-desc">Navigate the obstacles and beat the clock to win.</p>
+                    <button class="play-btn" onclick="playGame('Speed Run')">Play Now</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center py-6 text-gray-600 text-sm">
-        <p>© 2026 Al Shahriar Soikat. All rights reserved.</p>
+    <footer>
+        &copy; 2026 Player One Hub. Hosted on GitHub Pages.
     </footer>
 
+    <!-- JavaScript for basic interaction -->
     <script>
-        const masterDatabase = {
-            kids: [
-                { q: "2, 4, 6, 8... এর পরের সংখ্যাটি কত?", a: ["10", "12", "9"], c: 0 },
-                { q: "1 টি বিড়ালের 4 টি পা থাকলে, 3 টি বিড়ালের মোট কয়টি পা?", a: ["12", "8", "16"], c: 0 },
-                { q: "কোনটি আলাদা? (Dog, Cat, Apple, Cow)", a: ["Cat", "Apple", "Cow"], c: 1 },
-                { q: "10 থেকে 3 বাদ দিলে কত থাকে?", a: ["6", "8", "7"], c: 2 },
-                { q: "সূর্য কোন দিকে ওঠে?", a: ["West", "North", "East"], c: 2 },
-                { q: "1, 3, 5, 7... এর পরের সংখ্যাটি কত?", a: ["8", "9", "10"], c: 1 },
-                { q: "5 + 5 + 5 সমান কত?", a: ["15", "10", "20"], c: 0 },
-                { q: "সবচেয়ে বড় প্রাণী কোনটি?", a: ["Elephant", "Blue Whale", "Giraffe"], c: 1 },
-                { q: "একটি ত্রিভুজের কয়টি কোণ থাকে?", a: ["2", "3", "4"], c: 1 },
-                { q: "1 সপ্তাহে কয় দিন থাকে?", a: ["5", "6", "7"], c: 2 },
-                { q: "বরফ গলে কী হয়?", a: ["জল", "বাষ্প", "ধোঁয়া"], c: 0 },
-                { q: "কোন রঙটি রংধনুতে নেই?", a: ["Red", "Black", "Blue"], c: 1 },
-                { q: "10 এর অর্ধেক কত?", a: ["5", "2", "4"], c: 0 },
-                { q: "কোনটি পাখির নাম নয়?", a: ["Crow", "Bat", "Sparrow"], c: 1 },
-                { q: "1 দিনে কত ঘণ্টা থাকে?", a: ["12", "24", "48"], c: 1 },
-                { q: "12, 11, 10... পরের সংখ্যাটি কত?", a: ["8", "9", "11"], c: 1 },
-                { q: "তোমার 2 টি হাত ও 2 টি পা মিলে মোট কয়টি আঙুল আছে?", a: ["10", "20", "15"], c: 1 },
-                { q: "মৌমাছি আমাদের কী দেয়?", a: ["দুধ", "মধু", "ডিম"], c: 1 },
-                { q: "5 এর সাথে কত যোগ করলে 10 হয়?", a: ["4", "6", "5"], c: 2 },
-                { q: "ঘড়ির ছোট কাঁটা কিসের হিসাব রাখে?", a: ["Second", "Minute", "Hour"], c: 2 },
-                { q: "10, 20, 30... পরের সংখ্যাটি কত?", a: ["40", "35", "50"], c: 0 },
-                { q: "কোনটি ফলের নাম?", a: ["Banana", "Potato", "Onion"], c: 0 },
-                { q: "একটি গাড়ির কয়টি চাকা থাকে?", a: ["2", "4", "6"], c: 1 },
-                { q: "50 থেকে 10 বাদ দিলে কত হয়?", a: ["30", "40", "45"], c: 1 },
-                { q: "আকাশের রঙ কী?", a: ["Red", "Blue", "Green"], c: 1 },
-                { q: "1 বছর সমান কত মাস?", a: ["10", "11", "12"], c: 2 },
-                { q: "কোনটি বন্য প্রাণী?", a: ["Cow", "Lion", "Goat"], c: 1 },
-                { q: "2 x 3 সমান কত?", a: ["5", "6", "8"], c: 1 },
-                { q: "Sunday এর পর কী বার আসে?", a: ["Monday", "Tuesday", "Friday"], c: 0 },
-                { q: "100 এর অর্ধেক কত?", a: ["50", "25", "40"], c: 0 }
-            ],
-            teens: [
-                { q: "1=5, 2=25, 3=125 হলে, 4= কত?", a: ["625", "3125", "500"], c: 0 },
-                { q: "3 জন মানুষ 3 দিনে 3 টি কাজ করলে, 6 জন মানুষ 6 দিনে কয়টি কাজ করবে?", a: ["6", "12", "18"], c: 1 },
-                { q: "যদি আজ Monday হয়, তবে 61 দিন পর কী বার হবে?", a: ["Saturday", "Sunday", "Friday"], c: 0 },
-                { q: "100 জন দৌড়বিদের মধ্যে তুমি 2nd জনকে ওভারটেক করলে তোমার অবস্থান কত?", a: ["1st", "2nd", "3rd"], c: 1 },
-                { q: "কোনটি আলাদা? (Lion, Whale, Shark, Dolphin)", a: ["Lion", "Whale", "Shark"], c: 0 },
-                { q: "5, 10, 20, 40... সিরিজের পরবর্তী সংখ্যাটি কত?", a: ["60", "80", "100"], c: 1 },
-                { q: "ব্যাটারি ও বাল্বের দাম 110 টাকা। ব্যাটারি বাল্বের চেয়ে 100 টাকা বেশি দামি হলে বাল্বের দাম কত?", a: ["10", "5", "15"], c: 1 },
-                { q: "একটি ড্রামে 5 টি ছিদ্র আছে। ড্রামটি ভর্তি হতে কত সময় লাগবে?", a: ["Fast", "Slow", "Never"], c: 2 },
-                { q: "ইংরেজি বর্ণমালার 10th বর্ণ কোনটি?", a: ["H", "I", "J"], c: 2 },
-                { q: "10 জনের গ্রুপে সবাই সবার সাথে একবার করে হাত মেলালে মোট কতবার হবে?", a: ["45", "50", "100"], c: 0 },
-                { q: "2, 5, 9, 14, 20... পরের সংখ্যাটি কত?", a: ["25", "26", "27"], c: 2 },
-                { q: "12 টাকার জিনিসের দাম 25% বাড়লে নতুন দাম কত?", a: ["14", "15", "16"], c: 1 },
-                { q: "কোনটি আলাদা? (Circle, Triangle, Square, Sphere)", a: ["Triangle", "Square", "Sphere"], c: 2 },
-                { q: "A হলো B এর ভাই। B হলো C এর বোন। C হলো D এর বাবা। D এর সাথে A এর সম্পর্ক কী?", a: ["Uncle", "Brother", "Cousin"], c: 0 },
-                { q: "3, 7, 15, 31... এর পরের সংখ্যাটি কত?", a: ["60", "63", "64"], c: 1 },
-                { q: "20 এর 20% কত?", a: ["2", "4", "5"], c: 1 },
-                { q: "একটি ঘড়ির কাঁটা 12 টায় থাকলে, ঠিক 180 ডিগ্রি ঘুরলে কয়টা বাজবে?", a: ["3", "6", "9"], c: 1 },
-                { q: "Half of 2+2 কত হয়?", a: ["2", "3", "1"], c: 1 },
-                { q: "1 থেকে 100 পর্যন্ত লিখতে 8 সংখ্যাটি কতবার আসে?", a: ["19", "20", "21"], c: 1 },
-                { q: "যদি BOOK কে 4332 লেখা হয়, তবে LOOK কে কী লেখা হবে?", a: ["5332", "1234", "4332"], c: 0 },
-                { q: "একটি ট্রেন North দিকে যাচ্ছে, হাওয়া East দিকে বইছে। ট্রেনের ধোঁয়া কোন দিকে যাবে?", a: ["West", "South-East", "Nowhere"], c: 2 },
-                { q: "কোনটি ওজনে ভারী? 1 কেজি লোহা নাকি 1 কেজি তুলা?", a: ["লোহা", "তুলা", "সমান"], c: 2 },
-                { q: "11, 13, 17, 19... পরের সংখ্যাটি কত?", a: ["21", "23", "25"], c: 1 },
-                { q: "100 কে 0 দিয়ে ভাগ করলে কত হয়?", a: ["0", "100", "Undefined"], c: 2 },
-                { q: "যদি 10 টি বিড়াল 10 মিনিটে 10 টি ইঁদুর মারে, 100 মিনিটে 100 টি ইঁদুর মারতে কয়টি বিড়াল লাগবে?", a: ["100", "10", "1"], c: 1 },
-                { q: "X এর বয়স Y এর দ্বিগুণ। 10 বছর পর তাদের অনুপাত 3:2 হবে। X এর বর্তমান বয়স কত?", a: ["10", "20", "30"], c: 1 },
-                { q: "একটি আয়তক্ষেত্রের দৈর্ঘ্য ও প্রস্থ সমান হলে তাকে কী বলে?", a: ["Circle", "Square", "Triangle"], c: 1 },
-                { q: "25 এর বর্গমূল কত?", a: ["5", "10", "15"], c: 0 },
-                { q: "10, 8, 12, 10, 14... সিরিজের পরবর্তী সংখ্যাটি কত?", a: ["12", "14", "16"], c: 0 },
-                { q: "8, 27, 64, 125... পরের সংখ্যাটি কত?", a: ["216", "256", "196"], c: 0 }
-            ],
-            adults: [
-                { q: "2, 6, 12, 20, 30... এর পরবর্তী সংখ্যাটি কত?", a: ["42", "40", "50"], c: 0 },
-                { q: "1+1+1+1=44, 2+2+2+2=88 হলে, 3+3+3+3= কত?", a: ["132", "99", "111"], c: 0 },
-                { q: "একটি ঘড়িতে 3:15 বাজে। ঘণ্টা ও মিনিটের কাঁটার মধ্যবর্তী কোণ কত?", a: ["0 deg", "7.5 deg", "15 deg"], c: 1 },
-                { q: "কোনো মাসের 3rd দিন Tuesday হলে, 25th দিন কী বার হবে?", a: ["Monday", "Wednesday", "Thursday"], c: 1 },
-                { q: "যদি 5 টি মেশিন 5 মিনিটে 5 টি পণ্য বানায়, 100 টি মেশিনের 100 টি পণ্য বানাতে কত সময় লাগবে?", a: ["100 min", "5 min", "50 min"], c: 1 },
-                { q: "1 থেকে 100 এর মধ্যে কয়টি '9' আছে?", a: ["10", "19", "20"], c: 2 },
-                { q: "Divide 30 by 0.5 and add 10. Result?", a: ["25", "70", "40"], c: 1 },
-                { q: "যদি North-East দিক South হয়, তবে East দিক কী হবে?", a: ["North-West", "South-West", "South-East"], c: 0 },
-                { q: "7, 10, 8, 11, 9, 12... Next?", a: ["7", "10", "13"], c: 1 },
-                { q: "Father of Son is Son of my Father. Who am I?", a: ["Brother", "Father", "Grandpa"], c: 1 },
-                { q: "যদি 1=10, 2=20, 3=30... হয়, তবে 10= কত?", a: ["100", "1", "110"], c: 1 },
-                { q: "50 জন ছাত্রের মধ্যে A এর অবস্থান ওপর থেকে 15th এবং নিচ থেকে 30th। ছাত্র সংখ্যা কত?", a: ["44", "45", "46"], c: 0 },
-                { q: "1, 4, 9, 16, 25... সিরিজের 10th সংখ্যাটি কত?", a: ["81", "100", "121"], c: 1 },
-                { q: "একটি পুকুরে কচুরিপানা প্রতিদিন দ্বিগুণ হয়। 30 দিনে পূর্ণ হলে, অর্ধেক হতে কতদিন লাগবে?", a: ["15", "29", "10"], c: 1 },
-                { q: "যদি A = 1, B = 2 হয়, তবে Z = কত?", a: ["24", "25", "26"], c: 2 },
-                { q: "কিছু মাসে 30 দিন, কিছু মাসে 31 দিন। কয়টি মাসে 28 দিন থাকে?", a: ["1", "6", "12"], c: 2 },
-                { q: "50 এর 50% এর 50% কত?", a: ["12.5", "25", "50"], c: 0 },
-                { q: "1, 2, 6, 24, 120... এর পরের সংখ্যাটি কত?", a: ["240", "720", "600"], c: 1 },
-                { q: "কোনটি আলাদা? (121, 144, 169, 200)", a: ["121", "144", "200"], c: 2 },
-                { q: "3 টি আপেল থেকে 2 টি আপেল নিলে তোমার কাছে কয়টি থাকবে?", a: ["1", "2", "3"], c: 1 },
-                { q: "A x B = 24 এবং A - B = 2 হলে, A + B = কত?", a: ["10", "12", "14"], c: 0 },
-                { q: "একটি বৃত্তের ব্যাসার্ধ দ্বিগুণ করা হলে, ক্ষেত্রফল কতগুণ বাড়বে?", a: ["2", "4", "8"], c: 1 },
-                { q: "2, 3, 5, 8, 12... পরের সংখ্যাটি কত?", a: ["15", "16", "17"], c: 2 },
-                { q: "10, 5, 13, 10, 16, 20, 19... সিরিজের পরের সংখ্যাটি কত?", a: ["22", "40", "38"], c: 1 },
-                { q: "বাবার একমাত্র ভাইয়ের একমাত্র সন্তানের তুমি কে?", a: ["Brother", "Cousin", "Myself"], c: 1 },
-                { q: "12, 15, 21, 30, 42... এর পরের সংখ্যাটি কত?", a: ["55", "57", "60"], c: 1 },
-                { q: "100 জন মানুষ 100 দিনে 100 টি ঘর বানালে, 1 জন মানুষ 1 টি ঘর বানাতে কত দিন লাগবে?", a: ["1", "10", "100"], c: 2 },
-                { q: "2, 3, 7, 16, 32... পরবর্তী সংখ্যাটি কত?", a: ["57", "48", "64"], c: 0 },
-                { q: "কোনো সংখ্যার 30% যদি 60 হয়, তবে সংখ্যাটি কত?", a: ["150", "200", "300"], c: 1 },
-                { q: "6, 11, 21, 36, 56... পরের সংখ্যাটি কত?", a: ["81", "76", "91"], c: 0 }
-            ]
-        };
-
-        let currentCat = "", qIdx = 0, score = 0, activeQuestions = [];
-
-        function initTest(cat) {
-            currentCat = cat;
-            let db = masterDatabase[cat];
-            let shuffled = [...db].sort(() => 0.5 - Math.random());
-            activeQuestions = shuffled.slice(0, 10);
-            
-            qIdx = 0; score = 0;
-            document.getElementById('home-screen').classList.add('hidden');
-            document.getElementById('result-screen').classList.add('hidden');
-            document.getElementById('quiz-screen').classList.remove('hidden');
-            loadQ();
-        }
-
-        function loadQ() {
-            if (qIdx < 10) {
-                const q = activeQuestions[qIdx];
-                document.getElementById('question').innerText = q.q;
-                document.getElementById('q-count').innerText = `Question ${qIdx + 1}/10`;
-                document.getElementById('progress').style.width = ((qIdx + 1) * 10) + '%';
-                
-                const div = document.getElementById('options'); 
-                div.innerHTML = '';
-                
-                q.a.forEach((opt, i) => {
-                    const btn = document.createElement('button');
-                    btn.className = "glass p-5 rounded-2xl text-left font-bold text-lg hover:bg-blue-600/30 border border-white/5 iq-card animate__animated animate__fadeInUp";
-                    btn.innerText = opt;
-                    btn.onclick = () => { handleAnswer(i); };
-                    div.appendChild(btn);
-                });
-            } else {
-                showResult();
-            }
-        }
-
-        function handleAnswer(selectedIdx) {
-            if (selectedIdx === activeQuestions[qIdx].c) {
-                score++;
-            }
-            qIdx++;
-            loadQ();
-        }
-
-        function showResult() {
-            document.getElementById('quiz-screen').classList.add('hidden');
-            document.getElementById('result-screen').classList.remove('hidden');
-            
-            let baseIQ = currentCat === 'adults' ? 85 : currentCat === 'teens' ? 80 : 75;
-            let iqMultiplier = currentCat === 'adults' ? 5 : currentCat === 'teens' ? 6 : 7;
-            const finalIQ = baseIQ + (score * iqMultiplier); 
-            
-            document.getElementById('iq-val').innerText = finalIQ;
-            let catBox = document.getElementById('iq-category');
-            let msgBox = document.getElementById('iq-msg');
-
-            if(finalIQ >= 130) {
-                catBox.innerText = "🌟 Genius Level";
-                catBox.className = "inline-block bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full px-6 py-2 mb-6 font-bold";
-                msgBox.innerText = "অসাধারণ! আপনার বুদ্ধিমত্তা আন্তর্জাতিক জিনিয়াসদের সমতুল্য।";
-            } else if(finalIQ >= 110) {
-                catBox.innerText = "🚀 Superior Intelligence";
-                catBox.className = "inline-block bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full px-6 py-2 mb-6 font-bold";
-                msgBox.innerText = "চমৎকার! আপনার চিন্তাভাবনা গড়ের চেয়ে অনেক বেশি উন্নত।";
-            } else if(finalIQ >= 90) {
-                catBox.innerText = "🧠 Average Intelligence";
-                catBox.className = "inline-block bg-green-500/20 text-green-400 border border-green-500/30 rounded-full px-6 py-2 mb-6 font-bold";
-                msgBox.innerText = "ভালো! আপনার বুদ্ধিমত্তা স্বাভাবিক এবং ভারসাম্যপূর্ণ।";
-            } else {
-                catBox.innerText = "📚 Needs Practice";
-                catBox.className = "inline-block bg-gray-500/20 text-gray-400 border border-gray-500/30 rounded-full px-6 py-2 mb-6 font-bold";
-                msgBox.innerText = "নিয়মিত পাজল খেললে আপনার ব্রেইন আরও শার্প হবে।";
-            }
-        }
-
-        function retryTest() {
-            initTest(currentCat);
-        }
-
-        function submitRating(val) {
-            localStorage.setItem('userRating', val);
-            document.getElementById('rating-thanks').classList.remove('hidden');
+        function playGame(gameName) {
+            // This is a placeholder action. Later, you can change this function 
+            // to redirect to actual game HTML files (e.g., window.location.href = 'iq-test.html';)
+            alert('Loading ' + gameName + '... (You can link this to your actual game files later!)');
         }
     </script>
+
 </body>
 </html>
