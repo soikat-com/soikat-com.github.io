@@ -1,184 +1,553 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Gaming Hub</title>
+    <title>Al Shahriar Soikat | Personal Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Base Styling & Dark Theme */
+        /* Modern CSS Variables */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 31, 48, 0.7);
+            --accent-color: #00f2fe;
+            --secondary-color: #4facfe;
+            --text-color: #f0f4f8;
+            --text-dim: #94a3b8;
+            --border-glow: rgba(0, 242, 254, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 3px solid #ff4655; /* A bright gaming accent color */
+        /* Background Particle Glow */
+        .bg-glow {
+            position: fixed;
+            top: -100px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-color), transparent 70%);
+            opacity: 0.15;
+            filter: blur(80px);
+            z-index: -1;
+            animation: floatGlow 10s infinite alternate;
         }
-        h1 {
-            margin: 0;
-            color: #ff4655;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+
+        .bg-glow-2 {
+            position: fixed;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #7f00ff, transparent 70%);
+            opacity: 0.15;
+            filter: blur(90px);
+            z-index: -1;
+            animation: floatGlow 12s infinite alternate-reverse;
         }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        /* Navbar */
         nav {
-            margin-top: 15px;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ff4655;
-        }
-
-        /* Main Content & Grid Layout */
-        .container {
-            padding: 30px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        /* Individual Game Cards */
-        .game-card {
-            background-color: #1f1f1f;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            border: 1px solid #333;
-        }
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 70, 85, 0.2);
-            border-color: #ff4655;
-        }
-        .game-img {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
             width: 100%;
-            height: 150px;
-            background-color: #2a2a2a;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            padding: 120px 8% 60px;
+            text-align: center;
+            flex-direction: column;
         }
-        .game-info {
-            padding: 20px;
-        }
-        .game-title {
-            margin: 0 0 10px 0;
-            font-size: 1.3rem;
-        }
-        .game-desc {
-            font-size: 0.9rem;
-            color: #aaaaaa;
+
+        .profile-badge {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             margin-bottom: 20px;
-            line-height: 1.4;
+            animation: pulse 2s infinite;
         }
-        .play-btn {
-            display: inline-block;
-            background-color: #ff4655;
-            color: white;
-            padding: 10px 20px;
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(0, 242, 254, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero p.tagline {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .typing-text {
+            border-right: 2px solid var(--accent-color);
+            white-space: nowrap;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color); }
+        }
+
+        /* Social Buttons */
+        .social-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
             cursor: pointer;
-            border: none;
         }
-        .play-btn:hover {
-            background-color: #ff2a3f;
+
+        .btn-facebook {
+            background: #1877f2;
+            color: white;
+            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
+        }
+
+        .btn-facebook:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.6);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
+        }
+
+        /* Cards Grid */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Rating Section */
+        .rating-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .stars i {
+            color: #334155;
+            transition: color 0.2s;
+        }
+
+        .stars i.active,
+        .stars i:hover {
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+
+        .rating-box textarea {
+            width: 100%;
+            height: 100px;
+            background: rgba(11, 15, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px;
+            color: #fff;
+            resize: none;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .rating-box textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            color: #0b0f19;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.4);
+        }
+
+        .avg-rating {
+            margin-top: 25px;
+            font-size: 1.1rem;
+            color: var(--text-dim);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #1f1f1f;
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #777;
-            border-top: 1px solid #333;
+            padding: 30px;
+            background: rgba(11, 15, 25, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Player One Hub</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Arcade</a>
-            <a href="#">Logic & Puzzles</a>
-            <a href="#">About</a>
-        </nav>
-    </header>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <div class="container">
-        <h2>Featured Games</h2>
-        
-        <div class="game-grid">
-            
-            <!-- Game Card 1 -->
-            <div class="game-card">
-                <div class="game-img">🧠</div>
-                <div class="game-info">
-                    <h3 class="game-title">Logic IQ Master</h3>
-                    <p class="game-desc">Test your brain with challenging logic puzzles and quizzes.</p>
-                    <button class="play-btn" onclick="playGame('Logic IQ Master')">Play Now</button>
-                </div>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Soikat.me</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#rating">Rate Me</a></li>
+        </ul>
+    </nav>
 
-            <!-- Game Card 2 -->
-            <div class="game-card">
-                <div class="game-img">👾</div>
-                <div class="game-info">
-                    <h3 class="game-title">Pixel Defender</h3>
-                    <p class="game-desc">Protect your base from incoming waves in this retro shooter.</p>
-                    <button class="play-btn" onclick="playGame('Pixel Defender')">Play Now</button>
-                </div>
-            </div>
-
-            <!-- Game Card 3 -->
-            <div class="game-card">
-                <div class="game-img">🏁</div>
-                <div class="game-info">
-                    <h3 class="game-title">Speed Run</h3>
-                    <p class="game-desc">Navigate the obstacles and beat the clock to win.</p>
-                    <button class="play-btn" onclick="playGame('Speed Run')">Play Now</button>
-                </div>
-            </div>
-
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="profile-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Student & Tech Enthusiast
         </div>
-    </div>
+        <h1>Al Shahriar Soikat</h1>
+        <h2><span class="typing-text">Digital Creator | Web Developer</span></h2>
+        <p class="tagline">Simple boyツ • TGBHSian...2k28</p>
 
+        <p style="color: var(--text-dim); max-width: 550px; line-height: 1.6;">
+            Thakurgaon Govt. Boys' High School এর ছাত্র। প্রোগ্রামিং, ওয়েব ডেভেলপমেন্ট এবং টেকনোলজি নিয়ে কাজ করতে পছন্দ করি।
+        </p>
+
+        <!-- Social Buttons -->
+        <div class="social-btns">
+            <!-- Directly Bound Facebook URL -->
+            <a href="https://web.facebook.com/al.shahriar.soikat" target="_blank" class="btn btn-facebook">
+                <i class="fa-brands fa-facebook-f"></i> Connect on Facebook
+            </a>
+            <a href="https://instagram.com/_noiseless_wave_" target="_blank" class="btn btn-instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram (_noiseless_wave_)
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Location</h3>
+                <p>Thakurgaon, Rajshahi, Bangladesh</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-school"></i>
+                <h3>Education</h3>
+                <p>Student at Thakurgaon Govt. Boys' High School (TGBHS)</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>Passions</h3>
+                <p>Web Development, Python Coding, Logic Games & Tech Customization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">What I Do</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript দিয়ে আকর্ষণীয় ও রেসপন্সিভ ওয়েবসাইট তৈরি করা।</p>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-python"></i>
+                <h3>Python Programming</h3>
+                <p>প্যাথন দিয়ে বেসিক লজিক ডেভেলপমেন্ট ও প্রবলেম সলভিং।</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Logic & Puzzles</h3>
+                <p>ইন্টারেক্টিভ IQ কুইজ ও ব্রেইন গেমের প্রজেক্ট তৈরি করা।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Rating Section -->
+    <section class="section" id="rating">
+        <h2 class="section-title">Rate My Profile</h2>
+        <div class="rating-box">
+            <h3>আপনার মতামত জানান</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 5px;">
+                আমার ওয়েবসাইটটি আপনার কেমন লাগলো তা স্টার রেটিং দিয়ে জানান!
+            </p>
+
+            <div class="stars" id="starContainer">
+                <i class="fa-solid fa-star" data-value="1"></i>
+                <i class="fa-solid fa-star" data-value="2"></i>
+                <i class="fa-solid fa-star" data-value="3"></i>
+                <i class="fa-solid fa-star" data-value="4"></i>
+                <i class="fa-solid fa-star" data-value="5"></i>
+            </div>
+
+            <textarea id="reviewText" placeholder="আপনার সুন্দর একটি মন্তব্য লিখুন (ঐচ্ছিক)..."></textarea>
+            <br>
+            <button class="submit-btn" onclick="submitRating()">Submit Rating</button>
+
+            <div class="avg-rating">
+                Average Score: <span id="avgScore" style="color: var(--accent-color); font-weight: bold;">5.0</span> / 5 
+                (<span id="totalVotes">1</span> ratings)
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Copyright -->
     <footer>
-        &copy; 2026 Player One Hub. Hosted on GitHub Pages.
+        <p>&copy; 2026 <span>Al Shahriar Soikat</span>. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #64748b;">翻訳してくれてありがとう</p>
     </footer>
 
-    <!-- JavaScript for basic interaction -->
+    <!-- JavaScript -->
     <script>
-        function playGame(gameName) {
-            // This is a placeholder action. Later, you can change this function 
-            // to redirect to actual game HTML files (e.g., window.location.href = 'iq-test.html';)
-            alert('Loading ' + gameName + '... (You can link this to your actual game files later!)');
+        // Star Rating Functionality
+        const stars = document.querySelectorAll('.stars i');
+        let selectedRating = 5;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                updateStars(selectedRating);
+            });
+
+            star.addEventListener('mouseover', () => {
+                highlightStars(index + 1);
+            });
+
+            star.addEventListener('mouseleave', () => {
+                highlightStars(selectedRating);
+            });
+        });
+
+        function updateStars(rating) {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function highlightStars(rating) {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.style.color = '#f1c40f';
+                } else {
+                    star.style.color = '#334155';
+                }
+            });
+        }
+
+        // Initialize default 5 stars
+        updateStars(5);
+
+        let totalScore = 5;
+        let count = 1;
+
+        function submitRating() {
+            totalScore += selectedRating;
+            count++;
+            
+            const newAvg = (totalScore / count).toFixed(1);
+            document.getElementById('avgScore').innerText = newAvg;
+            document.getElementById('totalVotes').innerText = count;
+
+            const review = document.getElementById('reviewText').value;
+            alert('ধন্যবাদ আপনার ' + selectedRating + ' স্টার রেটিং এবং মতামতের জন্য!');
+            document.getElementById('reviewText').value = '';
         }
     </script>
-
 </body>
 </html>
